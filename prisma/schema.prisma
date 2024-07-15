@@ -1,0 +1,19 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Referral {
+  id              Int      @id @default(autoincrement())
+  referralName    String
+  referralEmail   String
+  referralDetails String
+  referrerName    String?
+  referrerEmail   String?
+  createdAt       DateTime @default(now())
+}
